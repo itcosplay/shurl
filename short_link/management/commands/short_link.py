@@ -15,4 +15,5 @@ class Command(BaseCommand):
 def make_short_link(url):
     # https://www.google.ru/
     # print(settings.DOMAIN)
+    short_url = settings.DOMAIN + urllib.parse.urlencode(dict(longURL=text))
     pass
