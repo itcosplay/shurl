@@ -17,6 +17,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.url }}
+        <span>{{ error }}</span>
         <button type="submit">Shurl!</button>
     </form>
 
