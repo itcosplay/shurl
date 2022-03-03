@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
-from django.conf import settings
+
+from short_link.utils import make_short_url
 
 class Command(BaseCommand):
     help = 'Creates short url(s) from url(urls)'
@@ -9,11 +10,10 @@ class Command(BaseCommand):
 
     def handle(self, urls, *args, **kwargs):
         for url in urls:
-            make_short_link(url)
+            show_short_url(url)
 
 
-def make_short_link(url):
-    # https://www.google.ru/
-    # print(settings.DOMAIN)
-    short_url = settings.DOMAIN + urllib.parse.urlencode(dict(longURL=text))
-    pass
+def show_short_url(url):
+    print (
+        url, ' <--> ', make_short_url(url)
+    )

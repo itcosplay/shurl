@@ -2,9 +2,12 @@ from django.db import models
 
 
 class Link(models.Model):
-    link = models.CharField(max_length=500)
+    url = models.CharField(
+        max_length=500,
+        unique=True
+    )
     
-    short_link = models.CharField(max_length=100)
+    short_url = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.link
+        return self.url
