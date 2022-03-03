@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from short_link.views import redirect_by_short_link
+from shurl.views import render_main_page
+from short_link.views import redirect_by_short_url
 
 
 urlpatterns = [
+    path('', render_main_page),
     path('admin/', admin.site.urls),
     path('short_link/', include('short_link.urls')),
-    path('<str:short_link>', redirect_by_short_link)
+    path('<str:short_url>', redirect_by_short_url)
 ]
