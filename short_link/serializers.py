@@ -6,4 +6,4 @@ from short_link.models import Link
 class LinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Link
-        fields = '__all__'
+        fields = ['url']

@@ -21,7 +21,7 @@ from short_link.views import redirect_by_short_url
 
 
 urlpatterns = [
-    path('', render_main_page),
+    path('', render_main_page, name='main'),
     path('admin/', admin.site.urls),
     path('short_link/', include('short_link.urls')),
     path('<str:short_url>', redirect_by_short_url)

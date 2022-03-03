@@ -14,9 +14,10 @@
   </head>
   <body>
 
-    <form id=form action="POST" action='/short_link/create'>
-        <input type="text" name="url">
-        <input type="submit" id="">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.url }}
+        <button type="submit">Shurl!</button>
     </form>
 
     <!-- Необязательный JavaScript; выберите один из двух! -->
