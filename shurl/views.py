@@ -6,16 +6,16 @@ from shurl.forms import LinkForm
 def render_main_page(request):
     error = ''
 
-    if request.method == 'POST':
-        form = LinkForm(request.POST)
+    # if request.method == 'POST':
+    #     form = LinkForm(request.POST)
 
-        if form.is_valid():
-            form.save()
+    #     if form.is_valid():
+    #         form.save()
 
-            return redirect('main')
+    #         return redirect('main')
             
-        else:
-            error = 'Form was incorrect!!!'
+    #     else:
+    #         error = 'Form was incorrect!!!'
 
     form = LinkForm()
 

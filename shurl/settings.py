@@ -12,8 +12,20 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+from environs import Env
+
+from hashids import Hashids
+
+
+
+env = Env()
+env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+HASHIDS = Hashids(min_length=4)
+# HASHIDS
 
 
 # Quick-start development settings - unsuitable for production
@@ -121,7 +133,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = env.str('STATIC_URL', '/static/')
+
+STATIC_ROOT = env.str('STATIC_ROOT', str(BASE_DIR/'static'))
+
+STATICFILES_DIRS = env.list(
+    'STATICFILES_DIRS',
+    default=[
+        str(BASE_DIR/'shurl/static'),
+    ]
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
