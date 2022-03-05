@@ -5,4 +5,4 @@ from short_link.models import Link
 
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
-    list_display = ['url', 'short_url']
+    list_display = ['url', 'short_url', 'coustom_url']
